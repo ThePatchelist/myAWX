@@ -1,0 +1,5 @@
+--- 
+- hosts: all
+  tasks: 
+  - name: Stop Hyper-V VM
+    win_shell: Stop-VM -name "VM_control"
