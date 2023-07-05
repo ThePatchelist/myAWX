@@ -2,4 +2,4 @@
 - hosts: all
   tasks: 
   - name: Stop Hyper-V VM
-    win_shell: Stop-VM -name "VM_control"
+    win_shell: Stop-VM -name "{{ vm_name }}"
