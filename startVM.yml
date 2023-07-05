@@ -2,4 +2,4 @@
 - hosts: all
   tasks: 
   - name: Start Hyper-V VM
-    win_shell: Start-VM -name "VM_control"
+    win_shell: Start-VM -name "{{ vm_name }}"
