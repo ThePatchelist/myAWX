@@ -4,5 +4,5 @@
   gather_facts: no
   tasks:
   - name: Disable user account
-    win_powershell:
+    ansible.windows.win_powershell:
       script: Get-LocalUser | Where-Object {$_.Name -ne "administrator"} | Disable-LocalUser
