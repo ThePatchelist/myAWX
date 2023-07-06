@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: no
   tasks:
-- name: Disable user accounts
-      win_user:
-        name: "{{ item }}"
-        account_disabled: yes
-      loop: "{{ users_to_disable }}"
+  - name: Disable user account
+    win_user:
+      name: "{{ item }}"
+      account_disabled: true
+    loop: "{{ users_to_disable }}"
