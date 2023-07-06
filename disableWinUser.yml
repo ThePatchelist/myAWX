@@ -1,6 +1,6 @@
 ---
 - name: Disable Windows user accounts on Hyper-V VM
-  hosts: 52346
+  hosts: all
   gather_facts: no
   tasks:
     - name: Disable user accounts
