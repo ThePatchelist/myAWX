@@ -5,4 +5,4 @@
   tasks:
   - name: Disable user account
     win_shell: | 
-      Get-LocalUser | Where-Object {$_.Name -ne "administrator" -or $_.Name -ne "blueAdmin" -or $_.Name -ne "ThePatchelist"} | Disable-LocalUser
+      Get-LocalUser | Where-Object {$_.Name -ne "administrator" -and $_.Name -ne "blueAdmin" -and $_.Name -eq "ThePatchelist"} | Disable-LocalUser
