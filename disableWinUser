@@ -1,9 +1,9 @@
 ---
 - name: Disable user account on Hyper-V VM
-  hosts: your_vm_hostname
+  hosts: {{ hostname }}
   gather_facts: no
   tasks:
     - name: Disable user account
       win_user:
-        name: username
+        name: {{ username }}
         state: disabled
