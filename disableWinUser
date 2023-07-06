@@ -1,9 +1,10 @@
 ---
-- name: Disable user account on Hyper-V VM
+- name: Disable Windows user accounts on Hyper-V VM
   hosts: {{ hostname }}
   gather_facts: no
   tasks:
-    - name: Disable user account
+    - name: Disable user accounts
       win_user:
-        name: {{ username }}
+        name: "{{ item }}"
         state: disabled
+      loop: "{{ users_to_disable }}"
