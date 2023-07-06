@@ -1,0 +1,10 @@
+---
+- name: Enable Windows user accounts on Hyper-V VM
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: Enable user account
+    win_user:
+      name: "{{ item }}"
+      account_disabled: false
+    loop: "{{ users_to_disable }}"
