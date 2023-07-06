@@ -4,7 +4,8 @@
   gather_facts: no
   tasks:
     - name: Disable user accounts
-      win_user:
-        name: "{{ item }}"
-        state: disabled
-      loop: "{{ users_to_disable }}"
+      win_command: |
+        $users = "{{ users_to_disable }}"
+        foreach ($user in $users) {
+          net user $user /active:no
+        }
