@@ -2,9 +2,11 @@
 - name: Disable Windows user accounts on Hyper-V VM
   hosts: all
   gather_facts: no
+  vars:
+    my_variable: "{{ users | from_json }}"
   tasks:
   - name: Disable user account
     win_user:
       name: "{{ item }}"
       account_disabled: true
-    loop: "{{ users_to_disable }}"
+    loop: my_variable
