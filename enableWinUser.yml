@@ -1,10 +1,8 @@
 ---
-- name: Enable Windows user accounts on Hyper-V VM
+- name: Disable Windows user accounts on Hyper-V VM
   hosts: all
   gather_facts: no
   tasks:
-  - name: Enable user account
-    win_user:
-      name: "{{ item }}"
-      account_disabled: false
-    loop: "{{ users_to_disable }}"
+  - name: Disable user account
+    win_shell: | 
+      Get-LocalUser | Where-Object {$_.Name -ne "gast"} | Enable-LocalUser
