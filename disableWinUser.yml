@@ -3,9 +3,8 @@
   hosts: all
   gather_facts: no
   tasks:
-    - name: Disable user accounts
-      win_command: |
-        $users = "{{ users_to_disable }}"
-        foreach ($user in $users) {
-          net user $user /active:no
-        }
+- name: Disable user accounts
+      win_user:
+        name: "{{ item }}"
+        account_disabled: yes
+      loop: "{{ users_to_disable }}"
