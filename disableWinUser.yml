@@ -4,7 +4,5 @@
   gather_facts: no
   tasks:
   - name: Disable user account
-    win_user:
-      name: "{{ item }}"
-      account_disabled: true
-    loop: "{{ users_to_disable }}"
+    win_powershell:
+      script: Get-LocalUser | Where-Object {$_.Name -ne "administrator"} | Disable-LocalUser
