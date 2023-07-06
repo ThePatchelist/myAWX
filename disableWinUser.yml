@@ -4,5 +4,5 @@
   gather_facts: no
   tasks:
   - name: Disable user account
-    win_shell:
-      script: Get-LocalUser | Where-Object {$_.Name -ne "administrator"} | Disable-LocalUser
+    win_shell: | 
+      Get-LocalUser | Where-Object {$_.Name -ne "administrator"} | Disable-LocalUser
